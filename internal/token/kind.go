@@ -12,6 +12,9 @@ const (
 
     Kind_Keyword_True
     Kind_Keyword_False
+    Kind_Keyword_If
+    Kind_Keyword_Else
+    Kind_Keyword_While
 
     Kind_Operator_Assign               // `=`
     Kind_Operator_Negate               // `!`
@@ -21,6 +24,8 @@ const (
     Kind_Operator_LessThan             // `<`
     Kind_Operator_GreaterThanOrEqualTo // `>=`
     Kind_Operator_LessThanOrEqualTo    // `<=`
+    Kind_Operator_And                  // `&&`
+    Kind_Operator_Or                   // `||`
     Kind_Operator_Add                  // `+`
     Kind_Operator_Subtract             // `-`
     Kind_Operator_Multiply             // `*`
@@ -31,6 +36,8 @@ const (
 
     Kind_Brackets_Parentheses_Open   // `(`
     Kind_Brackets_Parentheses_Close  // `)`
+    Kind_Brackets_Curly_Open         // `{`
+    Kind_Brackets_Curly_Close        // `}`
 )
 
 var (
@@ -43,6 +50,9 @@ var (
 
         Kind_Keyword_True:  "keyword:true",
         Kind_Keyword_False: "keyword:false",
+        Kind_Keyword_If:    "keyword:if",
+        Kind_Keyword_Else:  "keyword:else",
+        Kind_Keyword_While: "keyword:while",
 
         Kind_Operator_Assign:               "operator:assign",
         Kind_Operator_Negate:               "operator:negate",
@@ -52,16 +62,20 @@ var (
         Kind_Operator_LessThan:             "operator:less-than",
         Kind_Operator_GreaterThanOrEqualTo: "operator:greater-than-or-equal-to",
         Kind_Operator_LessThanOrEqualTo:    "operator:less-than-or-equal-to",
+        Kind_Operator_And:                  "operator:and",
+        Kind_Operator_Or:                   "operator:or",
         Kind_Operator_Add:                  "operator:add",
         Kind_Operator_Subtract:             "operator:subtract",
         Kind_Operator_Multiply:             "operator:multiply",
         Kind_Operator_Divide:               "operator:divide",
 
         Kind_Syntax_ValueSeparator:      "syntax:value-separator",
-        Kind_Syntax_Comment:             "#",
+        Kind_Syntax_Comment:             "syntax:comment",
 
         Kind_Brackets_Parentheses_Open:  "brackets:parentheses:open",
         Kind_Brackets_Parentheses_Close: "brackets:parentheses:close",
+        Kind_Brackets_Curly_Open:        "brackets:curly:open",
+        Kind_Brackets_Curly_Close:       "brackets:curly:close",
     }
 )
 

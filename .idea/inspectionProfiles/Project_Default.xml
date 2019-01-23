@@ -17,6 +17,8 @@
         <method importPath="strings" receiver="*Builder" name="WriteRune" />
         <method importPath="math/rand" receiver="*Rand" name="Read" />
         <method importPath="os" receiver="*File" name="Close" />
+        <method importPath="github.com/daniel-va/idpa/internal/ast/resolve" receiver="Context" name="Close" />
+        <method importPath="os" receiver="*File" name="WriteString" />
       </methods>
     </inspection_tool>
   </profile>

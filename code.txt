@@ -1,1 +1,1 @@
-value = "a string \n with a line break \t and tabs \" and escapes \r\n"
+value = "ttru" &&

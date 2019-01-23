@@ -160,14 +160,20 @@ func (p *parser) kindOf(char rune) Kind {
         return Kind_Operator_Divide
 
     // syntax
-    case '(':
-        return Kind_Brackets_Parentheses_Open
-    case ')':
-        return Kind_Brackets_Parentheses_Close
     case ',':
         return Kind_Syntax_ValueSeparator
     case '#':
         return Kind_Syntax_Comment
+
+    // brackets
+    case '(':
+        return Kind_Brackets_Parentheses_Open
+    case ')':
+        return Kind_Brackets_Parentheses_Close
+    case '{':
+        return Kind_Brackets_Curly_Open
+    case '}':
+        return Kind_Brackets_Curly_Close
     }
 
     if unicode.IsLetter(char) {
@@ -178,7 +184,14 @@ func (p *parser) kindOf(char rune) Kind {
 }
 
 func (p *parser) join(a, b Token) (Kind, bool) {
-    if a.Kind == b.Kind {
+    switch a.Kind {
+    case Kind_Unsupported:
+        if kind, ok := p.joinUnsupported(a.Value, b.Value); ok {
+            return kind, true
+        } else {
+            return Kind_Unsupported, true
+        }
+    case b.Kind:
         switch a.Kind {
         case Kind_Identifier:
             return p.joinIdentifier(a.Value + b.Value), true
@@ -190,6 +203,13 @@ func (p *parser) join(a, b Token) (Kind, bool) {
     switch a.Kind {
     case Kind_Identifier:
         return a.Kind, b.Kind == Kind_Number
+
+    case Kind_Keyword_False,
+        Kind_Keyword_True,
+        Kind_Keyword_If,
+        Kind_Keyword_Else,
+        Kind_Keyword_While:
+        return b.Kind, b.Kind == Kind_Identifier
 
     // operators
     case Kind_Operator_Negate:
@@ -224,8 +244,25 @@ func (p *parser) joinIdentifier(value string) Kind {
         return Kind_Keyword_True
     case "false":
         return Kind_Keyword_False
+    case "if":
+        return Kind_Keyword_If
+    case "else":
+        return Kind_Keyword_Else
+    case "while":
+        return Kind_Keyword_While
     default:
         return Kind_Identifier
+    }
+}
+
+func (p *parser) joinUnsupported(a, b string) (Kind, bool) {
+    switch a {
+    case "&":
+        return Kind_Operator_And, b == "&"
+    case "|":
+        return Kind_Operator_And, b == "|"
+    default:
+        return Kind_Unsupported, false
     }
 }
 

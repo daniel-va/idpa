@@ -1,12 +1,14 @@
 package ast
 
+import "strconv"
+
 type StringNode struct {
     location
     Value string
 }
 
 func (n StringNode) Dump() string {
-    return n.Value
+    return strconv.Quote(n.UsableValue())
 }
 
 func (n StringNode) UsableValue() string {
