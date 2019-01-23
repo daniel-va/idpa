@@ -38,6 +38,12 @@ func root_base(ctx Context) (ast.Node, bool) {
         return ResolveBoolean(ctx)
     case token.Kind_Brackets_Curly_Open:
         return ResolveBlock(ctx)
+    case token.Kind_Brackets_Parentheses_Open:
+        return ResolveGroup(ctx)
+    case token.Kind_Keyword_If:
+        return ResolveIf(ctx)
+    case token.Kind_Keyword_While:
+        return ResolveWhile(ctx)
     default:
         ctx.Drop()
         ctx.Report(Err("unexpected `%s`", tk.Value).AtToken(tk))
@@ -55,13 +61,21 @@ func root_followUp(ctx Context, startNode ast.Node) (node ast.Node, success bool
         variableNode, isValidTarget:= startNode.(ast.NameReferenceNode)
         node, ok := ResolveAssignment(ctx, variableNode)
         if !isValidTarget {
-            ctx.Report(Err("assignment to non-variable").From(startNode.Loc().Start).To(node.Loc().End))
+            ctx.Report(Err("assignment to non-variable").From(startNode.Loc().Start).To(nextTk.Pos))
         }
         return node, ok
     case token.Kind_Operator_And:
-        return ResolveAnd(ctx, node)
+        return ResolveAnd(ctx, startNode)
+    case token.Kind_Operator_Or:
+        return ResolveOr(ctx, startNode)
     case token.Kind_Brackets_Parentheses_Open:
         return ResolveCall(ctx, startNode)
+    case token.Kind_Keyword_Else:
+        ifNode, ok := startNode.(ast.IfNode)
+        if !ok {
+            return
+        }
+        return ResolveElse(ctx, ifNode)
     default:
         return
     }

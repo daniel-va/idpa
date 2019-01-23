@@ -46,8 +46,7 @@ func (ctx Context) checkFollowingNodes(node1, node2 ast.Node) bool {
     if node1.Loc().End.Row == node2.Loc().Start.Row {
         ctx.Report(
             Err("consecutive statements must be on separate lines").
-                From(node1.Loc().Start).
-                To(node2.Loc().End),
+                AtNode(node2),
         )
         return false
     }

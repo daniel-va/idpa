@@ -23,7 +23,7 @@ func ResolveCall(ctx Context, targetNode ast.Node) (node ast.CallNode, success b
 
         argNode, ok := ResolveRoot(ctx)
         if ok {
-           node.Arguments = append(node.Arguments, argNode)
+            node.Arguments = append(node.Arguments, argNode)
         }
     }
 
@@ -32,5 +32,6 @@ func ResolveCall(ctx Context, targetNode ast.Node) (node ast.CallNode, success b
     } else {
         return
     }
+
     return node, true
 }

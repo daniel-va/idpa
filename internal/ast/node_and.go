@@ -8,7 +8,7 @@ type AndNode struct {
 }
 
 func (n AndNode) Dump() string {
-    return n.LeftCondition.Dump() + " && " + n.RightCondition.Dump()
+    return "(" + n.LeftCondition.Dump() + " && " + n.RightCondition.Dump() + ")"
 }
 
 func (n AndNode) Loc() source.Location {

@@ -260,7 +260,7 @@ func (p *parser) joinUnsupported(a, b string) (Kind, bool) {
     case "&":
         return Kind_Operator_And, b == "&"
     case "|":
-        return Kind_Operator_And, b == "|"
+        return Kind_Operator_Or, b == "|"
     default:
         return Kind_Unsupported, false
     }

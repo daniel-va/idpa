@@ -3,10 +3,10 @@ package ast
 type OrNode struct {
     location
 
-    leftCondition  Node
-    rightCondition Node
+    LeftCondition  Node
+    RightCondition Node
 }
 
 func (n OrNode) Dump() string {
-    return n.leftCondition.Dump() + " || " + n.rightCondition.Dump()
+    return "(" + n.LeftCondition.Dump() + " || " + n.RightCondition.Dump() + ")"
 }

@@ -9,12 +9,7 @@ type BlockNode struct{
 
 func (n BlockNode) Dump() string {
     var sep string
-    switch len(n.Nodes) {
-    case 0:
-        // skip
-    case 1:
-        sep = " "
-    default:
+    if len(n.Nodes) > 0 {
         sep = "\n"
     }
 
