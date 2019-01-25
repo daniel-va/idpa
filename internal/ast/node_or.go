@@ -1,12 +1,17 @@
 package ast
 
 type OrNode struct {
-    location
+    infix
+}
 
-    LeftCondition  Node
-    RightCondition Node
+func NewOrNode() OrNode {
+    return OrNode{ infix: newInfix() }
 }
 
 func (n OrNode) Dump() string {
-    return "(" + n.LeftCondition.Dump() + " || " + n.RightCondition.Dump() + ")"
+    return dumpInfix(n, "||")
+}
+
+func (n OrNode) Precedence() OperatorPrecedence {
+    return OperatorPrecedence_Or
 }

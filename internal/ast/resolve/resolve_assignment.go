@@ -14,7 +14,7 @@ func ResolveAssignment(ctx Context, variableNode ast.NameReferenceNode) (node as
     if !ok {
         return
     }
-    node.Variable = variableNode
+    node.Variable = variableNode.NameNode
     node.Value    = valueNode
     return node, true
 }

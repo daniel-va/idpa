@@ -6,53 +6,66 @@ import (
 )
 
 func ResolveClosure(ctx Context) (resultNode ast.Node, success bool) {
-    node := ast.ClosureNode{}
+    var groupNode ast.GroupNode
+    var paramNodes []ast.NameNode
+
 
     if openTk, ok := ctx.Expect(token.Kind_Brackets_Parentheses_Open); ok {
-        node.Location.Start = openTk.Pos
+        groupNode.Location.Start = openTk.Pos
     } else {
         return
     }
 
-    canBeGroup := true
-
     for !ctx.Done() {
+        if groupNode.Node != nil && len(paramNodes) == 0 {
+            break
+        }
+
         if nextTk, ok := ctx.Peek(); ok && nextTk.Kind == token.Kind_Brackets_Parentheses_Close {
             break
         }
 
-        if !canBeGroup {
+        if len(paramNodes) > 0 {
             ctx.Expect(token.Kind_Syntax_ValueSeparator)
-        }
-
-        if canBeGroup {
-            paramNode, ok := ResolveRoot(ctx)
+            contentNode, ok := ResolveRoot(ctx)
             if !ok {
-                break
+                return
             }
-
-            node.Parameters = append(node.Parameters, paramNode)
+            groupNode.Node = contentNode
+            if paramNode, ok := contentNode.(ast.NameReferenceNode); ok {
+                paramNodes = append(paramNodes, paramNode.NameNode)
+            }
+        } else {
+            nameNode, ok := ResolveName(ctx)
+            if !ok {
+                return
+            }
+            paramNodes = append(paramNodes, nameNode)
         }
-
-
     }
 
     if closeTk, ok := ctx.Expect(token.Kind_Brackets_Parentheses_Close); ok {
-        node.Location.End = closeTk.EndPos()
+        groupNode.Location.End = closeTk.EndPos()
+    } else {
+        return
     }
 
-    if nextTk, ok := ctx.Peek(); ok && nextTk.Kind == token.Kind_Brackets_Curly_Open {
-        closureNode := ast.ClosureNode{
-            Parameters: parameters,
-        }
-        closureNode.Location.Start = node.Location.Start
-
-        blockNode, ok := ResolveBlock(ctx)
-        if !ok {
-            return
-        }
-        closureNode.Block        = blockNode
-        closureNode.Location.End = blockNode.Location.End
-        return closureNode, true
+    nextTk, ok := ctx.Peek()
+    var notAClosure = len(paramNodes) == 0 || !ok || nextTk.Kind != token.Kind_Brackets_Curly_Open
+    if notAClosure && groupNode.Node != nil {
+       return groupNode, true
     }
+
+    blockNode, ok := ResolveBlock(ctx)
+    if !ok {
+        return
+    }
+
+    node := ast.ClosureNode{
+        Parameters: paramNodes,
+        Block:      blockNode,
+    }
+    node.Location.Start = groupNode.Location.Start
+    node.Location.End   = blockNode.Location.End
+    return node, true
 }

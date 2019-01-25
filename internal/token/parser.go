@@ -164,6 +164,8 @@ func (p *parser) kindOf(char rune) Kind {
         return Kind_Syntax_ValueSeparator
     case '#':
         return Kind_Syntax_Comment
+    case '.':
+       return Kind_Syntax_DecimalPoint
 
     // brackets
     case '(':

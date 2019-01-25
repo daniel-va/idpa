@@ -18,6 +18,8 @@ type Reader struct {
     source io.Reader
     charCh chan rune
     err    error
+
+    lineBuffer []string
 }
 
 func (r *Reader) Read() <-chan rune {
@@ -28,11 +30,16 @@ func (r *Reader) Err() error {
     return r.err
 }
 
+func (r *Reader) GetBufferedLine(index int) string {
+    return r.lineBuffer[index]
+}
+
 func (r *Reader) reader() {
     scanner := bufio.NewScanner(r.source)
     for scanner.Scan() {
-        line := []rune(scanner.Text())
-        for _, char := range line {
+        line := scanner.Text()
+        r.lineBuffer = append(r.lineBuffer, line)
+        for _, char := range []rune(line) {
             r.charCh<- char
         }
         r.charCh<- '\n'

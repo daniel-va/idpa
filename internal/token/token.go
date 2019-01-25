@@ -9,7 +9,7 @@ type Token struct {
 }
 
 func (t Token) EndPos() source.Pos {
-    return t.Pos.AddCol(len(t.Value) - 1)
+    return t.Pos.AddCol(len(t.Value))
 }
 
 func (t Token) Location() source.Location {

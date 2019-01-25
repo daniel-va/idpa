@@ -2,26 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a18856f-2fc6-4092-9ff3-6cbc41e2fa31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/ast/node_closure.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ast/node_else.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ast/node_group.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ast/node_if.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ast/node_while.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_closure.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_else.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_if.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_or.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_while.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/node_addition.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/node_base_infix.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/node_division.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/node_float.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/node_integer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/node_multiplication.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/node_subtraction.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_float.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_infix.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_integer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/resolver.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/ast/resolver_proxy.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/runtime/interpreter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/runtime/interpreter_scope.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/runtime/scope.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/runtime/value.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/runtime/value__string.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/runtime/value_closure.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/runtime/value_null.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code.txt" beforeDir="false" afterPath="$PROJECT_DIR$/code.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/ast/node_and.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/ast/node_and.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/ast/node_block.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/ast/node_block.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/ast/node_assignment.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/ast/node_assignment.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/ast/node_or.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/ast/node_or.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/ast/resolve/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/ast/resolve/context.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/ast/resolve/resolve_and.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_and.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/ast/resolve/resolve_call.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_call.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/ast/resolve/resolve_and.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/ast/resolve/resolve_assignment.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_assignment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/ast/resolve/resolve_closure.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/ast/resolve/resolve_or.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/ast/resolve/resolve_root.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/ast/resolve/resolve_root.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/ast/resolve/run.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/ast/resolve/run.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/source/reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/source/reader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/token/kind.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/token/kind.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/token/parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/token/parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/token/token.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/token/token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,30 +48,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_closure.go">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/internal/runtime/interpreter.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-              <folding>
-                <element signature="e#17#119#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="247">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/code.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_call.go">
+        <entry file="file://$PROJECT_DIR$/internal/runtime/interpreter_scope.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="562">
+              <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
               <folding>
-                <element signature="e#17#119#0" expanded="true" />
+                <element signature="e#17#82#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,9 +93,15 @@
       <find>Entry</find>
       <find>let</find>
       <find>keyword_False</find>
+      <find>Err(</find>
+      <find>Multiplication</find>
+      <find>unexpected</find>
+      <find>assignment</find>
+      <find>assignment to</find>
     </findStrings>
     <replaceStrings>
       <replace>Token</replace>
+      <replace>Division</replace>
     </replaceStrings>
   </component>
   <component name="GOROOT" path="C:/apps/go" />
@@ -87,52 +111,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/internal/token/token/kind.go" />
-        <option value="$PROJECT_DIR$/internal/token/token/lexer.go" />
-        <option value="$PROJECT_DIR$/internal/token/token/entry.go" />
-        <option value="$PROJECT_DIR$/internal/token/entry.go" />
-        <option value="$PROJECT_DIR$/internal/token/lexer.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node.go" />
-        <option value="$PROJECT_DIR$/internal/ast/base_location.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_name.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_call.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_boolean.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_string.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/context_input.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_name_reference.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_string.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node__string.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_assignment.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_assignment.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_boolean.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_name.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_name_reference.go" />
-        <option value="$PROJECT_DIR$/internal/ast/error.go" />
-        <option value="$PROJECT_DIR$/internal/token/token.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_block.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/run.go" />
-        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_plus_infix.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_minus_infix.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_subtraction_infix.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_or.go" />
+        <option value="$PROJECT_DIR$/internal/ast/subtraction_node.go" />
+        <option value="$PROJECT_DIR$/internal/ast/addition_node.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_subtraction.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_integer.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_addition.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_and.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_infix.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_and.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_or.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_addition.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_base_infix.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_subtraction.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_multiplication.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_division.go" />
         <option value="$PROJECT_DIR$/internal/token/kind.go" />
         <option value="$PROJECT_DIR$/internal/token/parser.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_or.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_and.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_group.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_group.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_or.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_and.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_if.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_if.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_block.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_else.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_else.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_while.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_while.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_integer.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_float.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_float.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolver.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolver_proxy.go" />
         <option value="$PROJECT_DIR$/internal/ast/resolve/context.go" />
-        <option value="$PROJECT_DIR$/internal/ast/node_closure.go" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_root.go" />
-        <option value="$PROJECT_DIR$/code.txt" />
-        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_call.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolve/run.go" />
+        <option value="$PROJECT_DIR$/internal/interpreter/runtime/Value.go" />
+        <option value="$PROJECT_DIR$/internal/interpreter/scope.go" />
+        <option value="$PROJECT_DIR$/internal/source/reader.go" />
         <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_closure.go" />
+        <option value="$PROJECT_DIR$/internal/token/token.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_root.go" />
+        <option value="$PROJECT_DIR$/internal/error.go" />
+        <option value="$PROJECT_DIR$/internal/ast/error.go" />
+        <option value="$PROJECT_DIR$/internal/interpreter/error.go" />
+        <option value="$PROJECT_DIR$/internal/interpreter/interpreter.go" />
+        <option value="$PROJECT_DIR$/internal/runtime/value.go" />
+        <option value="$PROJECT_DIR$/internal/runtime/value_null.go" />
+        <option value="$PROJECT_DIR$/internal/runtime/scope.go" />
+        <option value="$PROJECT_DIR$/internal/runtime/error.go" />
+        <option value="$PROJECT_DIR$/internal/runtime/value_closure.go" />
+        <option value="$PROJECT_DIR$/internal/runtime/stdlib.go" />
+        <option value="$PROJECT_DIR$/internal/runtime/interpreter.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/internal/runtime/value_string.go" />
+        <option value="$PROJECT_DIR$/internal/runtime/value__string.go" />
+        <option value="$PROJECT_DIR$/internal/ast/node_assignment.go" />
+        <option value="$PROJECT_DIR$/internal/runtime/interpreter_scope.go" />
+        <option value="$PROJECT_DIR$/internal/ast/resolve/resolve_assignment.go" />
+        <option value="$PROJECT_DIR$/code.txt" />
       </list>
     </option>
   </component>
@@ -163,20 +192,7 @@
               <item name="idpa" type="b2602c69:ProjectViewProjectNode" />
               <item name="idpa" type="462c0819:PsiDirectoryNode" />
               <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="ast" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="idpa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="idpa" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="ast" type="462c0819:PsiDirectoryNode" />
-              <item name="resolve" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="idpa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="idpa" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="token" type="462c0819:PsiDirectoryNode" />
+              <item name="runtime" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -196,14 +212,15 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel\code\go\src\github.com\daniel-va\idpa\internal\interpret" />
+      <recent name="C:\Users\Daniel\code\go\src\github.com\daniel-va\idpa\internal\token" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Daniel\code\go\src\github.com\daniel-va\idpa\internal\ast\resolve" />
       <recent name="C:\Users\Daniel\code\go\src\github.com\daniel-va\idpa\internal\ast" />
+      <recent name="C:\Users\Daniel\code\go\src\github.com\daniel-va\idpa\internal\ast\resolve" />
       <recent name="C:\Users\Daniel\code\go\src\github.com\daniel-va\idpa\internal\token" />
       <recent name="C:\Users\Daniel\code\go\src\github.com\daniel-va\idpa\internal\source" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Daniel\code\go\src\github.com\daniel-va\idpa\internal\token" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -239,12 +256,12 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25397456" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2579491" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3320343" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32969603" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3320343" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -263,212 +280,161 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/internal/ast/node_group.go</url>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/internal/token/entry.go" />
-    <entry file="file://$PROJECT_DIR$/internal/token/lexer.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_boolean.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="10" lean-forward="true" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/base_location.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_infix.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <element signature="e#17#119#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_name.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_addition.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_name_reference.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/node_and.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="95">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node__string.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/node_or.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state>
+          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_name.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/node_base_infix.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="57" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="57" />
-          <folding>
-            <element signature="e#17#119#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="372">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_name_reference.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_subtraction.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/ast/node_addition.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" column="75" selection-start-line="4" selection-start-column="75" selection-end-line="4" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_boolean.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
-          <folding>
-            <element signature="e#17#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_assignment.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="105" selection-start-line="7" selection-start-column="105" selection-end-line="7" selection-end-column="105" />
-          <folding>
-            <element signature="e#17#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_string.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-          <folding>
-            <element signature="e#17#119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/error.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-          <folding>
-            <element signature="e#13#118#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_block.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-          <folding>
-            <element signature="e#17#119#0" expanded="true" />
-          </folding>
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/internal/ast/resolve/context_input.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+        <state relative-caret-position="608">
+          <caret line="50" column="17" lean-forward="true" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
           <folding>
             <element signature="e#17#122#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/run.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/node_subtraction.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-          <folding>
-            <element signature="e#17#119#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="209">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/internal/ast/node_multiplication.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/source/location.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/node_division.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/token/parser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="167" column="38" selection-start-line="167" selection-start-column="38" selection-end-line="167" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/apps/go/src/builtin/builtin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/apps/go/src/math/big/floatconv.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/ast/node_integer.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_integer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/apps/go/src/math/big/float.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="141" column="5" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/apps/go/src/math/big/int.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="101" column="24" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/internal/token/kind.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/token/token.go">
+    <entry file="file://C:/apps/go/src/strconv/ftoa.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/token/parser.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="262" column="31" selection-start-line="262" selection-start-column="31" selection-end-line="262" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_and.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_or.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_group.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_or.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_and.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
+        <state relative-caret-position="448">
+          <caret line="43" column="51" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -482,126 +448,221 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_if.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/node_float.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="56" lean-forward="true" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_block.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_else.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_else.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        <state relative-caret-position="247">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
           <folding>
-            <element signature="e#17#119#0" expanded="true" />
+            <element signature="e#13#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_float.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="323">
+          <caret line="21" column="46" lean-forward="true" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_while.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolver.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+        <state relative-caret-position="76">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_while.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolver_proxy.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding>
-            <element signature="e#17#119#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="4" selection-start-column="4" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/internal/ast/resolve/context.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+        <state relative-caret-position="334">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_call.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/run.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="17" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/node_closure.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_group.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="133">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
           <folding>
             <element signature="e#17#119#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/apps/go/src/os/types.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/apps/go/src/os/file.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="236" column="27" lean-forward="true" selection-start-line="236" selection-start-column="27" selection-end-line="236" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/apps/go/src/strings/strings.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="580" column="5" selection-start-line="580" selection-start-column="5" selection-end-line="580" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_closure.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="67" column="48" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
+          <folding>
+            <element signature="e#17#119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/token/token.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_string.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_root.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="66" column="73" selection-start-line="66" selection-start-column="73" selection-end-line="66" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/error.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/ast/error.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/source/reader.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/runtime/value_null.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/runtime/scope.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/runtime/error.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/runtime/value.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/runtime/value_closure.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/apps/go/src/regexp/regexp.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="478" column="18" selection-start-line="478" selection-start-column="18" selection-end-line="478" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/runtime/interpreter.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/runtime/stdlib.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/runtime/value__string.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/internal/ast/node_assignment.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="38">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_root.go">
+    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_assignment.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="63" column="98" selection-start-line="63" selection-start-column="98" selection-end-line="63" selection-end-column="98" />
+        <state relative-caret-position="247">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_call.go">
+    <entry file="file://$PROJECT_DIR$/internal/runtime/interpreter_scope.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="562">
+          <caret line="66" column="19" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
           <folding>
-            <element signature="e#17#119#0" expanded="true" />
+            <element signature="e#17#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/ast/resolve/resolve_closure.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding>
-            <element signature="e#17#119#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="19">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
         </state>
       </provider>
     </entry>

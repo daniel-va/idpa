@@ -5,7 +5,7 @@ import (
 )
 
 type AssignmentNode struct {
-    Variable NameReferenceNode
+    Variable NameNode
     Value    Node
 }
 

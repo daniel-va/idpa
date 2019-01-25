@@ -6,18 +6,28 @@ import (
     "github.com/daniel-va/idpa/internal/token"
 )
 
-func newContext(lexer *token.Lexer) Context {
-    return Context{
+func newContext(lexer *token.Lexer, resolver ast.ProxyResolver) Context {
+    ctx := Context{
         contextInput: &contextInput{
           lexer: lexer,
         },
-        errCh: make(chan ast.Error),
+        resolver: resolver,
     }
+    ctx.Peek() // check if already done (in case of empty file)
+    return ctx
 }
 
 type Context struct {
     *contextInput
-    errCh chan ast.Error
+    resolver ast.ProxyResolver
+}
+
+func (ctx Context) ExpectAny() (token.Token, bool) {
+    tk, ok := ctx.Read()
+    if !ok {
+        ctx.Report(Err("missing token").AtToken(tk))
+    }
+    return tk, ok
 }
 
 func (ctx Context) Expect(kind token.Kind) (token.Token, bool) {
@@ -34,12 +44,7 @@ func (ctx Context) Expect(kind token.Kind) (token.Token, bool) {
 }
 
 func (ctx Context) Report(err ast.Error) {
-    ctx.errCh<- err
-}
-
-func (ctx Context) Close() error {
-    close(ctx.errCh)
-    return nil
+    ctx.resolver.SendErr(err)
 }
 
 func (ctx Context) checkFollowingNodes(node1, node2 ast.Node) bool {

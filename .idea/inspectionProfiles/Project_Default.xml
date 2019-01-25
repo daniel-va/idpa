@@ -19,6 +19,7 @@
         <method importPath="os" receiver="*File" name="Close" />
         <method importPath="github.com/daniel-va/idpa/internal/ast/resolve" receiver="Context" name="Close" />
         <method importPath="os" receiver="*File" name="WriteString" />
+        <method importPath="github.com/daniel-va/idpa/internal/ast" receiver="ProxyResolver" name="Close" />
       </methods>
     </inspection_tool>
   </profile>

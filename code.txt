@@ -1,3 +1,2 @@
-f = () {
-
-}
+value = "Hello, World"
+print(value)

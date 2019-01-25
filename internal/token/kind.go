@@ -31,8 +31,9 @@ const (
     Kind_Operator_Multiply             // `*`
     Kind_Operator_Divide               // `/`
 
-    Kind_Syntax_ValueSeparator // `,`
-    Kind_Syntax_Comment        // `#`
+    Kind_Syntax_ValueSeparator  // `,`
+    Kind_Syntax_Comment         // `#`
+    Kind_Syntax_DecimalPoint    // `.`
 
     Kind_Brackets_Parentheses_Open   // `(`
     Kind_Brackets_Parentheses_Close  // `)`
@@ -71,6 +72,7 @@ var (
 
         Kind_Syntax_ValueSeparator:      "syntax:value-separator",
         Kind_Syntax_Comment:             "syntax:comment",
+        Kind_Syntax_DecimalPoint:        "syntax:decimal-point",
 
         Kind_Brackets_Parentheses_Open:  "brackets:parentheses:open",
         Kind_Brackets_Parentheses_Close: "brackets:parentheses:close",

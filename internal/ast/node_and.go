@@ -1,19 +1,17 @@
 package ast
 
-import "github.com/daniel-va/idpa/internal/source"
-
 type AndNode struct {
-    LeftCondition  Node
-    RightCondition Node
+    infix
+}
+
+func NewAndNode() AndNode {
+    return AndNode{ infix: newInfix() }
 }
 
 func (n AndNode) Dump() string {
-    return "(" + n.LeftCondition.Dump() + " && " + n.RightCondition.Dump() + ")"
+    return dumpInfix(n, "&&")
 }
 
-func (n AndNode) Loc() source.Location {
-    return source.Location{
-        Start: n.LeftCondition.Loc().Start,
-        End:   n.RightCondition.Loc().End,
-    }
+func (n AndNode) Precedence() OperatorPrecedence {
+    return OperatorPrecedence_And
 }

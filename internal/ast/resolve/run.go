@@ -5,12 +5,10 @@ import (
     "github.com/daniel-va/idpa/internal/token"
 )
 
-func Run(lexer *token.Lexer) (<-chan ast.Node, <-chan ast.Error, <-chan struct{}) {
-   ctx := newContext(lexer)
-
-   nodeCh := make(chan ast.Node)
-   doneCh := make(chan struct{})
-   go func() {
+func Run(lexer *token.Lexer) ast.Resolver {
+    resolver := ast.NewResolver()
+    ctx := newContext(lexer, resolver)
+    go func() {
        var previousNode *ast.Node
        for !ctx.Done() {
            if node, ok := ResolveRoot(ctx); ok {
@@ -18,14 +16,12 @@ func Run(lexer *token.Lexer) (<-chan ast.Node, <-chan ast.Error, <-chan struct{}
                    ctx.checkFollowingNodes(*previousNode, node)
                }
                previousNode = &node
-               nodeCh<- node
+               resolver.Send(node)
            } else {
                previousNode = nil
            }
        }
-       doneCh<- struct{}{}
-       close(nodeCh)
-       ctx.Close()
-   }()
-   return nodeCh, ctx.errCh, doneCh
+       resolver.Close()
+    }()
+    return resolver
 }
