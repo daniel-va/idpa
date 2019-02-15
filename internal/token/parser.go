@@ -210,7 +210,8 @@ func (p *parser) join(a, b Token) (Kind, bool) {
         Kind_Keyword_True,
         Kind_Keyword_If,
         Kind_Keyword_Else,
-        Kind_Keyword_While:
+        Kind_Keyword_While,
+        Kind_Keyword_Return:
         return b.Kind, b.Kind == Kind_Identifier
 
     // operators
@@ -242,6 +243,10 @@ func (p *parser) joinKind(kind Kind) (Kind, bool) {
 
 func (p *parser) joinIdentifier(value string) Kind {
     switch value {
+
+    // keywords
+    // Don't forget to add them in `parser.join` too.
+    // Otherwise, keywords would mark the end of an identifier.
     case "true":
         return Kind_Keyword_True
     case "false":
@@ -252,6 +257,9 @@ func (p *parser) joinIdentifier(value string) Kind {
         return Kind_Keyword_Else
     case "while":
         return Kind_Keyword_While
+    case "return":
+        return Kind_Keyword_Return
+
     default:
         return Kind_Identifier
     }

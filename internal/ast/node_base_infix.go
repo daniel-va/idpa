@@ -22,6 +22,8 @@ const (
 
     OperatorPrecedence_Or
     OperatorPrecedence_And
+    OperatorPrecedence_Equality
+    OperatorPrecedence_Comparison
     OperatorPrecedence_AdditionAndSubtraction
     OperatorPrecedence_MultiplicationAndDivision
     OperatorPrecedence_Not

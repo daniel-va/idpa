@@ -15,6 +15,7 @@ const (
     Kind_Keyword_If
     Kind_Keyword_Else
     Kind_Keyword_While
+    Kind_Keyword_Return
 
     Kind_Operator_Assign               // `=`
     Kind_Operator_Negate               // `!`
@@ -49,11 +50,12 @@ var (
         Kind_Number:      "number",
         Kind_String:      "string",
 
-        Kind_Keyword_True:  "keyword:true",
-        Kind_Keyword_False: "keyword:false",
-        Kind_Keyword_If:    "keyword:if",
-        Kind_Keyword_Else:  "keyword:else",
-        Kind_Keyword_While: "keyword:while",
+        Kind_Keyword_True:   "keyword:true",
+        Kind_Keyword_False:  "keyword:false",
+        Kind_Keyword_If:     "keyword:if",
+        Kind_Keyword_Else:   "keyword:else",
+        Kind_Keyword_While:  "keyword:while",
+        Kind_Keyword_Return: "keyword:return",
 
         Kind_Operator_Assign:               "operator:assign",
         Kind_Operator_Negate:               "operator:negate",

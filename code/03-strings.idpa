@@ -1,0 +1,12 @@
+value = "a string"
+
+# strings can be concatenated
+value = value + " is never alone"
+println(value)
+
+# strings can only span one line, but do support a number of escape sequences
+println("a newline: \n")
+println("a carriage return: \r")
+println("a tabulator: \t")
+println("a double quote: \"")
+println("a backslash: \\")

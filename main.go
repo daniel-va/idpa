@@ -2,50 +2,85 @@ package main
 
 import (
     "fmt"
-    "github.com/daniel-va/idpa/internal/ast"
     "github.com/daniel-va/idpa/internal/ast/resolve"
+    "github.com/daniel-va/idpa/internal/runtime/exec"
     "github.com/daniel-va/idpa/internal/source"
     "github.com/daniel-va/idpa/internal/token"
+    "github.com/urfave/cli"
     "os"
-    "time"
+    "strconv"
+    "strings"
 )
 
 func main() {
-    if err := Run(); err != nil {
-        panic(err)
+    app        := cli.NewApp()
+    app.Version = "1.0.0"
+    app.Name    = "idpa"
+    app.Usage   = "the interpreter for the idpa programming language"
+
+    app.Flags = []cli.Flag{
+        cli.StringFlag{
+            Name:  "file, f",
+            Usage: "the `file` to interpret",
+        },
+    }
+
+    app.Action = func(c *cli.Context) error {
+        file := c.String("file")
+        if file == "" {
+            return fmt.Errorf("missing `--file` flag")
+        }
+        return Run(file)
+    }
+
+    if err := app.Run(os.Args); err != nil {
+        os.Stderr.WriteString("[ERROR] " + err.Error() + "\n")
     }
 }
 
-func Run() error {
-    file, err := os.Open("./code.txt")
+const codeColOffset = 4
+
+func Run(filePath string) error {
+    file, err := os.Open(filePath)
     if err != nil {
         return fmt.Errorf("failed to open source file: %s", err)
     }
     defer file.Close()
 
-    reader := source.Read(file)
-    lexer  := token.NewLexer(reader)
-    nodeCh, errCh, doneCh := resolve.Run(lexer)
-    var errs []ast.Error
+    reader      := source.Read(file)
+    lexer       := token.NewLexer(reader)
+    resolver    := resolve.Run(lexer)
+    interpreter := exec.NewInterpreter(resolver)
 
-    LOOP:
-    for {
-        select{
-        case node := <-nodeCh:
-            fmt.Println(node.Dump())
 
-        case err := <-errCh:
-            errs = append(errs, err)
+    exitCode, errs := interpreter.Run()
 
-        case <-doneCh:
-            break LOOP
-        }
-    }
-
-    // wait for stdout
-    time.Sleep(time.Millisecond * 20)
     for _, err := range errs {
-        os.Stderr.WriteString(fmt.Sprintf("Error at %s: %s\n", err.Location.Start.AtPath("./code.txt"), err.Message))
+        start, end := err.Location.Start, err.Location.End
+
+        msg := start.AtPath(file.Name()) + ": " + err.Message + "\n"
+
+        var maxCol int
+        for i := start.Row; i <= end.Row; i++ {
+            line := reader.GetBufferedLine(i - 1)
+            if len(line) > maxCol {
+                maxCol = len(line)
+            }
+            msg += fmt.Sprintf("%" + strconv.Itoa(codeColOffset) + "d", i) + " | " + line + "\n"
+        }
+
+        minCol := start.Col
+        if end.Col < minCol {
+            minCol = end.Col
+        }
+
+        if start.Row == end.Row {
+            maxCol = end.Col
+        }
+
+        msg += strings.Repeat(" ", codeColOffset + 2 + minCol) + strings.Repeat("^", maxCol - minCol + 1)
+        os.Stderr.WriteString(msg + "\n")
     }
+    os.Exit(exitCode)
     return nil
 }

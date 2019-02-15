@@ -25,8 +25,7 @@ func ResolveClosure(ctx Context) (resultNode ast.Node, success bool) {
             break
         }
 
-        if len(paramNodes) > 0 {
-            ctx.Expect(token.Kind_Syntax_ValueSeparator)
+        if len(paramNodes) == 0 {
             contentNode, ok := ResolveRoot(ctx)
             if !ok {
                 return
@@ -36,6 +35,7 @@ func ResolveClosure(ctx Context) (resultNode ast.Node, success bool) {
                 paramNodes = append(paramNodes, paramNode.NameNode)
             }
         } else {
+            ctx.Expect(token.Kind_Syntax_ValueSeparator)
             nameNode, ok := ResolveName(ctx)
             if !ok {
                 return

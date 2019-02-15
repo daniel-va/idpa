@@ -80,6 +80,18 @@ func root_followUp(ctx Context, startNode ast.Node) (node ast.Node, success bool
         return ResolveInfix(ctx, startNode, ast.NewMultiplicationNode())
     case token.Kind_Operator_Divide:
         return ResolveInfix(ctx, startNode, ast.NewDivisionNode())
+    case token.Kind_Operator_GreaterThan:
+        return ResolveInfix(ctx, startNode, ast.NewGreaterThanNode())
+    case token.Kind_Operator_GreaterThanOrEqualTo:
+        return ResolveInfix(ctx, startNode, ast.NewGreaterThanOrEqualToNode())
+    case token.Kind_Operator_LessThan:
+        return ResolveInfix(ctx, startNode, ast.NewLessThanNode())
+    case token.Kind_Operator_LessThanOrEqualTo:
+        return ResolveInfix(ctx, startNode, ast.NewLessThanOrEqualToNode())
+    case token.Kind_Operator_Equal:
+        return ResolveInfix(ctx, startNode, ast.NewEqualsNode())
+    case token.Kind_Operator_NotEqual:
+        return ResolveInfix(ctx, startNode, ast.NewNotEqualsNode())
     case token.Kind_Brackets_Parentheses_Open:
         return ResolveCall(ctx, startNode)
     case token.Kind_Keyword_Else:
