@@ -1,9 +1,0 @@
-# variables and expressions
-a = 10
-b = 3 * a + 2
-print(to_string(a) + " " + to_string(b) + "\n")
-
-# types are dynamic, but strong
-b = "A string"
-c = "Another string"
-print(b + " and " + c + "\n")

@@ -1,2 +1,2 @@
 # idpa
-IDPA-Arbeit zum Thema "Programmiersprachen - Was ist das?"
+IDPA-Arbeit zum Thema "Aufbau einer Programmiersprache".

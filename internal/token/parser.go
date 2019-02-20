@@ -2,7 +2,6 @@ package token
 
 import (
     "github.com/daniel-va/idpa/internal/source"
-    "unicode"
 )
 
 func newParser(readCh <-chan rune) *parser {
@@ -178,7 +177,7 @@ func (p *parser) kindOf(char rune) Kind {
         return Kind_Brackets_Curly_Close
     }
 
-    if unicode.IsLetter(char) {
+    if ('A' <= char && char <= 'Z')|| ('a' <= char && char <= 'z') || ('0' <= char && char <= '9') {
         return Kind_Identifier
     }
 

@@ -16,7 +16,7 @@ func main() {
     app        := cli.NewApp()
     app.Version = "1.0.0"
     app.Name    = "idpa"
-    app.Usage   = "the interpreter for the idpa programming language"
+    app.Usage   = "the interpreter for the idpa-linux programming language"
 
     app.Flags = []cli.Flag{
         cli.StringFlag{
