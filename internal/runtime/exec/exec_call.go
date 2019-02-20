@@ -49,7 +49,7 @@ func ExecCall(ctx Context, node ast.CallNode) (Value, *Error) {
             } else {
                 paramType = paramTypes[i]
             }
-            if !paramType.Allows(argValue.Type()) {
+            if paramType != 0 && !paramType.Allows(argValue.Type()) {
                 return nil, Err("value of type %s not allowed here", argValue.Type()).AtNode(node)
             }
         }

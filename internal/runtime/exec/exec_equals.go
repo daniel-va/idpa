@@ -36,7 +36,18 @@ func execEqualsValues(lValue, rValue Value) bool {
         rBoolValue := rValue.(BooleanValue)
         return lBoolValue == rBoolValue
     case ClosureValue:
+        // closures are never equal
         return false
+    case NullValue:
+        return true
+    case NumberValue:
+        lNumberValue := lValue.(NumberValue)
+        rNumberValue := rValue.(NumberValue)
+        return lNumberValue == rNumberValue
+    case StringValue:
+        lStringValue := lValue.(StringValue)
+        rStringValue := rValue.(StringValue)
+        return lStringValue == rStringValue
     default:
         panic(fmt.Sprintf("unchecked type: %T", lValue))
     }
