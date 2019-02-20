@@ -1,6 +1,8 @@
 package runtime
 
-import "strconv"
+import (
+    "strconv"
+)
 
 type ClosureValue struct {
     Arity int
@@ -17,15 +19,20 @@ func (v ClosureValue) Type() ValueType {
     return ValueType_Closure
 }
 
-type TypeAnnotation int
+
+func AllowTypes(types ...ValueType) TypeAnnotation {
+    return TypeAnnotation(0).Allow(types...)
+}
+
+type TypeAnnotation uint
 func (t TypeAnnotation) Allow(types ...ValueType) TypeAnnotation {
-    result := t
+    result := uint(t)
     for _, currentType := range types {
-        result |= 1 << currentType
+        result |= uint(currentType)
     }
-    return result
+    return TypeAnnotation(result)
 }
 
 func (t TypeAnnotation) Allows(aType ValueType) bool {
-    return (int(t) & int(aType)) != 0
+    return (uint(t) & uint(aType)) != 0
 }

@@ -7,15 +7,14 @@ type Value interface {
     Type() ValueType
 }
 
-type ValueType uint8
+type ValueType uint
 const (
-    _ ValueType = iota
-    ValueType_Array
-    ValueType_Boolean
-    ValueType_Closure
-    ValueType_Null
-    ValueType_Number
-    ValueType_String
+    ValueType_Array   = 1 << 0
+    ValueType_Boolean = 1 << 1
+    ValueType_Closure = 1 << 2
+    ValueType_Null    = 1 << 3
+    ValueType_Number  = 1 << 4
+    ValueType_String  = 1 << 5
 )
 
 var (
@@ -24,7 +23,7 @@ var (
         ValueType_Boolean: "Boolean",
         ValueType_Closure: "Closure",
         ValueType_Number:  "Number",
-        ValueType_Null:    "NullValue_Instance",
+        ValueType_Null:    "null",
         ValueType_String:  "String",
     }
 )

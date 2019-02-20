@@ -9,4 +9,5 @@ var Entries = map[string]runtime.Value{}
 func init() {
     initIO()
     initTypes()
+    initArray()
 }
